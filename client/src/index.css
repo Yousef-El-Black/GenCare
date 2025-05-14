@@ -55,10 +55,6 @@ pre {
   font-size: 1em; /* 2 */
 }
 
-a {
-  background-color: transparent;
-}
-
 abbr[title] {
   border-bottom: none; /* 1 */
   text-decoration: underline; /* 2 */
@@ -206,6 +202,10 @@ template {
 
 [hidden] {
   display: none;
+}
+
+.overlay {
+  @apply opacity-70 bg-black;
 }
 
 .menuitem-active {

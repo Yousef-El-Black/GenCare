@@ -7,7 +7,7 @@ const Layout = () => {
   return (
     <div>
       <Sidebar />
-      <div className="content pl-[210px] bg-white pt-[2.5vh]">
+      <div className="content p-2 sm:pl-[210px] bg-white pt-[2.5vh]">
         <Header />
         <main>
           <Outlet />
