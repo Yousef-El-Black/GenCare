@@ -1,6 +1,6 @@
-import { PieChart } from "@mui/x-charts/PieChart";
+import { PieChart as MuiPieChart } from "@mui/x-charts/PieChart";
 
-export default function PieActiveArc({
+export default function PieChart({
   data,
 }: {
   data: { label: string; value: number }[];
@@ -10,7 +10,7 @@ export default function PieActiveArc({
   };
 
   return (
-    <PieChart
+    <MuiPieChart
       series={[
         {
           data,
@@ -25,3 +25,13 @@ export default function PieActiveArc({
     />
   );
 }
+
+/*
+Data Structure:
+  {
+    label: string,
+    value: number,
+    color?: string,
+  }
+
+*/

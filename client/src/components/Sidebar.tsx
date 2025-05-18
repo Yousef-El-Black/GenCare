@@ -1,5 +1,3 @@
-import { Link } from "react-router";
-
 // Icons
 import HomeFilledIcon from "@mui/icons-material/HomeFilled";
 import AssessmentIcon from "@mui/icons-material/Assessment";
@@ -8,6 +6,7 @@ import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 import DisplaySettingsIcon from "@mui/icons-material/DisplaySettings";
 import InventoryIcon from "@mui/icons-material/Inventory";
 import LogoutIcon from "@mui/icons-material/Logout";
+import SideBarItem from "./SideBarItem";
 
 const Sidebar = () => {
   return (
@@ -17,41 +16,41 @@ const Sidebar = () => {
           <img src="/assets/logo.png" alt="Logo" className="w-2/3 h-2/3" />
         </div>
         <ul className="flex flex-col justify-center items-center w-full">
-          <li className="py-5 w-full flex justify-center items-center cursor-pointer text-white duration-300 hover:text-darkcharcoal hover:bg-coolgray hover:opacity-70 menuitem-active">
-            <Link to={"/"}>
-              <HomeFilledIcon fontSize="large" />
-            </Link>
-          </li>
-          <li className="py-5 w-full flex justify-center items-center cursor-pointer text-white duration-300 hover:text-darkcharcoal hover:bg-coolgray hover:opacity-70">
-            <Link to={"/statistics"}>
-              <AssessmentIcon fontSize="large" />
-            </Link>
-          </li>
-          <li className="py-5 w-full flex justify-center items-center cursor-pointer text-white duration-300 hover:text-darkcharcoal hover:bg-coolgray hover:opacity-70">
-            <Link to={"/calender"}>
-              <EventIcon fontSize="large" />
-            </Link>
-          </li>
-          <li className="py-5 w-full flex justify-center items-center cursor-pointer text-white duration-300 hover:text-darkcharcoal hover:bg-coolgray hover:opacity-70">
-            <Link to={"/staff"}>
-              <PeopleAltIcon fontSize="large" />
-            </Link>
-          </li>
-          <li className="py-5 w-full flex justify-center items-center cursor-pointer text-white duration-300 hover:text-darkcharcoal hover:bg-coolgray hover:opacity-70">
-            <Link to={"/inventory"}>
-              <InventoryIcon fontSize="large" />
-            </Link>
-          </li>
-          <li className="py-5 w-full flex justify-center items-center cursor-pointer text-white duration-300 hover:text-darkcharcoal hover:bg-coolgray hover:opacity-70">
-            <Link to={"/settings"}>
-              <DisplaySettingsIcon fontSize="large" />
-            </Link>
-          </li>
-          <li className="py-5 w-full flex justify-center items-center cursor-pointer text-white duration-300 hover:text-darkcharcoal hover:bg-coolgray hover:opacity-70">
-            <Link to={"/logout"}>
-              <LogoutIcon fontSize="large" />
-            </Link>
-          </li>
+          <SideBarItem
+            label={"Homepage"}
+            icon={<HomeFilledIcon fontSize="large" />}
+            link={"/"}
+          />
+          <SideBarItem
+            label={"Statistics"}
+            icon={<AssessmentIcon fontSize="large" />}
+            link={"/statistics"}
+          />
+          <SideBarItem
+            label={"Calendar"}
+            icon={<EventIcon fontSize="large" />}
+            link={"/calendar"}
+          />
+          <SideBarItem
+            label={"Staff"}
+            icon={<PeopleAltIcon fontSize="large" />}
+            link={"/staff"}
+          />
+          <SideBarItem
+            label={"Inventory"}
+            icon={<InventoryIcon fontSize="large" />}
+            link={"/inventory"}
+          />
+          <SideBarItem
+            label={"Settings"}
+            icon={<DisplaySettingsIcon fontSize="large" />}
+            link={"/settings"}
+          />
+          <SideBarItem
+            label={"Logout"}
+            icon={<LogoutIcon fontSize="large" />}
+            link={"/logout"}
+          />
         </ul>
       </div>
     </aside>

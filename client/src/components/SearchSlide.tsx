@@ -9,7 +9,7 @@ const SearchSlide = ({
 }) => {
   return (
     <div
-      className={`fixed top-0 left-0 duration-700 w-[100vw] h-[100vh] bg-white flex justify-center gap-4 flex-wrap pt-12 z-12 ${
+      className={`fixed top-0 left-0 duration-700 w-[100vw] h-[100vh] bg-white flex justify-center gap-4 flex-wrap pt-12 z-122 ${
         isOpen ? "translate-y-0" : "translate-y-[-100%]"
       }`}
     >

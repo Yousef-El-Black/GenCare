@@ -17,7 +17,7 @@ import MonitorHeartIcon from "@mui/icons-material/MonitorHeart";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import StarIcon from "@mui/icons-material/Star";
-import PieChart from "../components/PieChart";
+import PieChart from "../components/Charts/PieChart";
 
 ChartJS.register(
   LineElement,
