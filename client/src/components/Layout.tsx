@@ -1,14 +1,29 @@
+import { useState } from "react";
 import { Outlet } from "react-router";
-import Header from "./Header";
 import Footer from "./Footer";
+import Header from "./Header";
 import Sidebar from "./Sidebar";
 
 const Layout = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(true);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
+  const closeSidebar = () => {
+    setIsSidebarOpen(false);
+  };
+
   return (
-    <div>
-      <Sidebar />
-      <div className="content p-2 sm:pl-[210px] bg-white pt-[2.5vh]">
-        <Header />
+    <div className="flex bg-bgprimary">
+      <Sidebar isSidebarOpen={isSidebarOpen} closeSidebar={closeSidebar} />
+      <div
+        className={`content duration-500 flex-1 ${
+          isSidebarOpen ? " ml-[270px]" : "ml-0"
+        }`}
+      >
+        <Header toggleSidebar={toggleSidebar} />
         <main>
           <Outlet />
         </main>

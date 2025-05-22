@@ -1,91 +1,91 @@
 import { useState } from "react";
 
 // Icons
-import SearchIcon from "@mui/icons-material/Search";
-import NotificationsIcon from "@mui/icons-material/Notifications";
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
+import SearchIcon from "@mui/icons-material/Search";
+import CloseIcon from "@mui/icons-material/Close";
+import FullscreenIcon from "@mui/icons-material/Fullscreen";
+import FullscreenExitIcon from "@mui/icons-material/FullscreenExit";
+import NotificationsIcon from "@mui/icons-material/Notifications";
+const Header = ({
+  toggleSidebar,
+}: {
+  toggleSidebar: React.MouseEventHandler<HTMLDivElement> | undefined;
+}) => {
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [searchVal, setSearchVal] = useState("");
 
-// Components
-import SearchSlide from "./SearchSlide";
-import MenuSlide from "./MenuSlide";
-import MonthPicker from "./MonthPicker";
-
-const Header = () => {
-  const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
-  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const toggleFullscreen = () => {
+    setIsFullscreen(!isFullscreen);
+    if (!isFullscreen) {
+      document.documentElement.requestFullscreen();
+    } else {
+      document.exitFullscreen();
+    }
+  };
 
   return (
-    <header className="flex justify-between mb-[50px]">
-      <div className="left pe-5 ">
-        {/* Used in Header in Desktop Screen */}
-        <div className="md:block hidden greeting">
-          {/* Name of User is Signed  */}
-          <h2 className="text-lg lg:text-3xl font-semibold py-1">
-            Hello Yousef 👋
-          </h2>
-          {/* Name of Hospital  */}
-          <span className="text-sm lg:text-md font-light tracking-wider">
-            Royal Hospital Hurghada
-          </span>
-        </div>
-      </div>
-      <div className="right flex-1 items-center flex justify-between md:justify-end sm:pe-2 lg:pe-5">
-        {/* Menu Icon */}
-        <div
-          className="menuicon cursor-pointer sm:hidden"
-          onClick={() => {
-            setIsMenuOpen(true);
-          }}
-        >
-          <MenuOpenIcon fontSize="large" />
-        </div>
-        <div className="search mx-2 lg:mr-[125px]">
-          {/* Search Icon For DESKTOP */}
-          <form className="hidden flex-1 relative w-[50px] h-[50px] bg-white shadow rounded-[25px] lg:flex justify-center items-center overflow-hidden cursor-pointer hover:w-[250px] duration-700 hover:translate-x-[100px] border">
-            <button
-              type="submit"
-              className="w-[50px] absolute right-0 top-[50%] translate-y-[-50%] cursor-pointer"
-            >
-              <SearchIcon />
-            </button>
-            <input
-              type="text"
-              className="w-[250px] h-[50px] outline-0 indent-5"
-              placeholder="Search"
-            />
-          </form>
-          {/* Search Icon For MOBILE */}
-          <form className="lg:hidden flex-1 relative w-[70px] sm:w-[150px] h-[50px] bg-white shadow rounded-[25px] flex justify-center items-center overflow-hidden cursor-pointer border">
-            <button
-              className="w-full cursor-pointer"
-              onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
-                e.preventDefault();
-                setIsSearchOpen(true);
-              }}
-            >
-              <SearchIcon />
-            </button>
-            <SearchSlide isOpen={isSearchOpen} setIsOpen={setIsSearchOpen} />
+    <header className="sticky top-0 left-0 w-full px-5 py-4">
+      <div className="bg-white rounded-lg text-body h-[70px] flex items-center px-5 justify-between">
+        <div className="left flex gap-5">
+          <div
+            className="icon cursor-pointer text-primary"
+            onClick={toggleSidebar}
+          >
+            <MenuOpenIcon fontSize="large" />
+          </div>
+          <form className="search bg-bgprimary rounded-lg w-[250px]">
+            <div className="h-full flex items-center text-sm font-normal">
+              <div className="icon w-[35px] h-[35px] flex justify-center items-center opacity-50 text-body cursor-pointer">
+                <SearchIcon fontSize="medium" />
+              </div>
+              <input
+                type="text"
+                placeholder="Search Here ..."
+                className="outline-0 border-0 flex-1"
+                value={searchVal}
+                onChange={(e) => setSearchVal(e.target.value)}
+              />
+              <div
+                className={`icon text-body px-2 cursor-pointer ${
+                  searchVal ? "visible" : "invisible"
+                }`}
+                onClick={() => setSearchVal("")}
+              >
+                <CloseIcon fontSize="small" />
+              </div>
+            </div>
           </form>
         </div>
-        <div className="flex gap-3 lg:gap-8 justify-center items-center">
-          <div className="cursor-pointer">
+        <div className="right flex gap-4 items-center">
+          <div
+            className="icon cursor-pointer text-primary"
+            onClick={toggleFullscreen}
+          >
+            {isFullscreen ? (
+              <FullscreenExitIcon fontSize="large" />
+            ) : (
+              <FullscreenIcon fontSize="large" />
+            )}
+          </div>
+          <div className="notification text-secondary cursor-pointer">
             <NotificationsIcon fontSize="large" />
           </div>
-          <div className="usericon w-[50px] h-[50px] rounded-full overflow-hidden cursor-pointer">
-            <img
-              src="/assets/userimg.png"
-              alt="User Photo"
-              className="w-full h-full"
-            />
+          <div className="user flex gap-2">
+            <div className="img-frame overflow-hidden h-[40px] rounded border-1">
+              <img
+                src="/assets/userimg.png"
+                alt="User IMG"
+                className="h-[40px]"
+              />
+            </div>
+            <div className="details text-xs flex flex-col justify-between">
+              <p className="name font-bold tracking-wide text-sm">Hassan</p>
+              <span>Admin</span>
+            </div>
           </div>
-          {/* <div className="h-[50px] px-2 lg:px-3 shadow-lg flex justify-center items-center cursor-pointer text-sm lg:text-lg">
-            {monthsWords[currentMonth]} {currentYear} 
-          </div> */}
-          <MonthPicker />
         </div>
       </div>
-      <MenuSlide isOpen={isMenuOpen} setIsOpen={setIsMenuOpen} />
     </header>
   );
 };
