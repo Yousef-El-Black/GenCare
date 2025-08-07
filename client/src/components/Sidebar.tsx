@@ -86,7 +86,7 @@ const Sidebar = ({
 
   return (
     <aside
-      className={`w-[270px] bg-body h-screen fixed duration-500 ${
+      className={`md:z-1 z-[99] w-[270px] bg-body h-screen fixed duration-500 ${
         isSidebarOpen ? "" : "translate-x-[-271px]"
       }`}
     >
@@ -375,6 +375,12 @@ const Sidebar = ({
           </div>
         </ul>
       </div>
+      <div
+        className={`overlay w-screen h-screen fixed bg-{#00000080} md:z-1 z-[-1] top-0 left-0 ${
+          isSidebarOpen ? "" : "hidden"
+        }`}
+        onClick={closeSidebar}
+      ></div>
     </aside>
   );
 };

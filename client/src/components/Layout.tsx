@@ -20,7 +20,7 @@ const Layout = () => {
       <Sidebar isSidebarOpen={isSidebarOpen} closeSidebar={closeSidebar} />
       <div
         className={`content duration-500 flex-1 ${
-          isSidebarOpen ? " ml-[270px]" : "ml-0"
+          isSidebarOpen ? " md:ml-[270px]" : "ml-0"
         }`}
       >
         <Header toggleSidebar={toggleSidebar} />
