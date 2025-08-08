@@ -376,8 +376,8 @@ const Sidebar = ({
         </ul>
       </div>
       <div
-        className={`overlay w-screen h-screen fixed bg-{#00000080} md:z-1 z-[-1] top-0 left-0 ${
-          isSidebarOpen ? "" : "hidden"
+        className={`overlay w-screen h-screen fixed bg-{#00000080} md:z-1 z-[-1] top-0 left-0 md:hidden ${
+          isSidebarOpen ? "md:hidden" : "md:hidden hidden"
         }`}
         onClick={closeSidebar}
       ></div>
