@@ -2,7 +2,7 @@ import { Link } from "react-router";
 
 const Footer = () => {
   return (
-    <footer className="px-5 bg-white flex justify-between py-4">
+    <footer className="px-5 bg-white flex flex-col md:flex-row justify-center md:justify-between py-4 text-center md:text-start">
       <div className="left">2025 © All Rights Reserved By GenCare ERP</div>
       <div className="right">
         <Link className="underline text-deepblue" to={"privacypolicy"}>
