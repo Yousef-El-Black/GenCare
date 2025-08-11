@@ -347,13 +347,13 @@ const DataTable = () => {
             <button
               className="h-[50px] rounded-r border-1 px-2 cursor-pointer flex justify-center items-center hover:bg-coolgray duration-300"
               onClick={() => changeOperationPage(1)}
-              disabled={operations.length / operationsEntries < operationsPage}
+              disabled={operations.length / operationsEntries <= operationsPage}
             >
               Next
             </button>
           </div>
         </tfoot>
-      </table>{" "}
+      </table>
     </div>
   );
 };

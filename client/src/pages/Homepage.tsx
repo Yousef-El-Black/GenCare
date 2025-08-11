@@ -7,6 +7,7 @@ import { Typography } from "@mui/material";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import TrendingDownIcon from "@mui/icons-material/TrendingDown";
 import DataTable from "../components/DataTable";
+import PieChart from "../components/Charts/PieChart";
 
 const Homepage = () => {
   type departmentDataType = {
@@ -190,6 +191,24 @@ const Homepage = () => {
               <DataTable />
             </div>
           </div>
+        </div>
+        <div className="my-5 flex gap-5 flex-wrap">
+          <div className="earnings flex-1 bg-white p-5 rounded-lg min-w-[250px]">
+            <h2 className="pb-3 font-semibold text-xl">
+              Earnings <span className="text-xs font-light">in thousand</span>
+            </h2>
+            <PieChart
+              data={[
+                { label: "Radiology", value: 72 },
+                { label: "Emergency", value: 60 },
+                { label: "Laboratory", value: 49 },
+                { label: "Inpatient", value: 55 },
+                { label: "Cath Lab", value: 83 },
+              ]}
+            />
+          </div>
+          <div className="notification flex-2 bg-white p-5 rounded-lg min-w-[250px]"></div>
+          <div className="recent-activity flex-2 bg-white p-5 rounded-lg min-w-[250px]"></div>
         </div>
       </div>
     </div>

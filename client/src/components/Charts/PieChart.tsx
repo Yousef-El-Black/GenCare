@@ -1,12 +1,8 @@
 import { PieChart as MuiPieChart } from "@mui/x-charts/PieChart";
 
-export default function PieChart({
-  data,
-}: {
-  data: { label: string; value: number }[];
-}) {
+const PieChart = ({ data }: { data: { label: string; value: number }[] }) => {
   const valueFormatter = (value: { value: number }): string => {
-    return `${value.value}%`;
+    return `${value.value}K`;
   };
 
   return (
@@ -24,8 +20,9 @@ export default function PieChart({
       width={200}
     />
   );
-}
+};
 
+export default PieChart;
 /*
 Data Structure:
   {
