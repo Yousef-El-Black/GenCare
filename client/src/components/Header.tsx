@@ -54,8 +54,8 @@ const Header = ({
   return (
     <header
       ref={HeaderRef}
-      className={`sticky top-0 left-0 w-full px-5 py-4 duration-200 ${
-        scrollY > 100 ? "bg-white" : ""
+      className={`sticky top-0 left-0 w-full px-5 py-4 duration-200 z-97 ${
+        scrollY > 100 ? "bg-white shadow-lg" : ""
       }`}
     >
       <div className="bg-white rounded-lg text-body h-[70px] flex items-center px-5 justify-between">

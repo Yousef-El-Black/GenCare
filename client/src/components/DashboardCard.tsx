@@ -18,7 +18,9 @@ const DashboardCard = ({
     <div className="bg-white rounded-lg shadow p-3 flex justify-between items-center flex-1 min-w-[250px] min-h-[150px]">
       <div className="text flex flex-col gap-2">
         <div className="title text-lg text-darkcharcoal">{title}</div>
-        <div className="num font-bold text-lg">{num}</div>
+        <div className="num font-extrabold text-2xl text-deepblue md:px-2">
+          {num}
+        </div>
         <div className="percent flex gap-2 text-xs items-center">
           <div
             className={`icon rounded-full flex justify-center items-center text-white ${
