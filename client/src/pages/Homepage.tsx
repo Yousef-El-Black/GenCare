@@ -1,13 +1,166 @@
 import { Link } from "react-router";
+import * as timeago from "timeago.js";
 import StackedBarChart from "../components/Charts/StackedBarChart";
 import DashboardCard from "../components/DashboardCard";
 import ProgressBar from "../components/ProgressBar";
 import { Typography } from "@mui/material";
-
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import TrendingDownIcon from "@mui/icons-material/TrendingDown";
 import DataTable from "../components/DataTable";
 import PieChart from "../components/Charts/PieChart";
+
+const notificaionsData = [
+  {
+    person: {
+      name: "Dr. Mark",
+      img: "/assets/doctor.png",
+    },
+    data: "added new task patient appointment booking",
+    date: Date.now() - 11 * 1000 * 60 * 60,
+    link: "/",
+  },
+  {
+    person: {
+      name: "Dr. Mark",
+      img: "/assets/doctor (1).png",
+    },
+    data: "added new task patient appointment booking",
+    date: new Date(),
+    link: "/",
+  },
+  {
+    person: {
+      name: "Dr. John",
+      img: "/assets/man.png",
+    },
+    data: "added new task patient appointment booking",
+    date: new Date(),
+    link: "/",
+  },
+  {
+    person: {
+      name: "Dr. Mark",
+      img: "/assets/doctor.png",
+    },
+    data: "added new task patient appointment booking",
+    date: new Date(),
+    link: "/",
+  },
+  {
+    person: {
+      name: "Dr. Mark",
+      img: "/assets/doctor.png",
+    },
+    data: "added new task patient appointment booking",
+    date: new Date(),
+    link: "/",
+  },
+  {
+    person: {
+      name: "Dr. Mark",
+      img: "/assets/doctor.png",
+    },
+    data: "added new task patient appointment booking",
+    date: new Date(),
+    link: "/",
+  },
+  {
+    person: {
+      name: "Dr. Mark",
+      img: "/assets/doctor.png",
+    },
+    data: "added new task patient appointment booking",
+    date: new Date(),
+    link: "/",
+  },
+  {
+    person: {
+      name: "Dr. Mark",
+      img: "/assets/doctor.png",
+    },
+    data: "added new task patient appointment booking",
+    date: new Date(),
+    link: "/",
+  },
+  {
+    person: {
+      name: "Dr. Mark",
+      img: "/assets/doctor.png",
+    },
+    data: "added new task patient appointment booking",
+    date: new Date(),
+    link: "/",
+  },
+  {
+    person: {
+      name: "Dr. Mark",
+      img: "/assets/doctor.png",
+    },
+    data: "added new task patient appointment booking",
+    date: new Date(),
+    link: "/",
+  },
+  {
+    person: {
+      name: "Dr. Mark",
+      img: "/assets/doctor.png",
+    },
+    data: "added new task patient appointment booking",
+    date: new Date(),
+    link: "/",
+  },
+  {
+    person: {
+      name: "Dr. Mark",
+      img: "/assets/doctor.png",
+    },
+    data: "added new task patient appointment booking",
+    date: new Date(),
+    link: "/",
+  },
+  {
+    person: {
+      name: "Dr. Mark",
+      img: "/assets/doctor.png",
+    },
+    data: "added new task patient appointment booking",
+    date: new Date(),
+    link: "/",
+  },
+];
+
+const recentActivityData = [
+  {
+    title: "Invoice has been issued",
+    color: "green",
+    desc: "Lorem ipsum dolor sit amet adipiscing elit",
+    date: Date.now() - 11 * 1000 * 60 * 60,
+  },
+  {
+    title: "Bill paid",
+    color: "red",
+    desc: "Lorem ipsum dolor sit amet adipiscing elit",
+    date: Date.now() - 11 * 1000 * 60 * 60,
+  },
+  {
+    title: "Bill Due",
+    color: "green",
+    desc: "Lorem ipsum dolor sit amet adipiscing elit",
+    date: Date.now() - 11 * 1000 * 60 * 60,
+  },
+  {
+    title: "Bill paid",
+    color: "red",
+    desc: "Lorem ipsum dolor sit amet adipiscing elit",
+    date: Date.now() - 11 * 1000 * 60 * 60,
+  },
+  {
+    title: "Bill Due",
+    color: "green",
+    desc: "Lorem ipsum dolor sit amet adipiscing elit",
+    date: Date.now() - 11 * 1000 * 60 * 60,
+  },
+];
 
 const Homepage = () => {
   type departmentDataType = {
@@ -207,8 +360,78 @@ const Homepage = () => {
               ]}
             />
           </div>
-          <div className="notification flex-2 bg-white p-5 rounded-lg min-w-[250px]"></div>
-          <div className="recent-activity flex-2 bg-white p-5 rounded-lg min-w-[250px]"></div>
+          <div className="notification flex-2 bg-white p-5 rounded-lg min-w-[250px]">
+            <div className="heading flex justify-between items-center pb-3">
+              <h2 className="font-semibold text-xl">Notifications</h2>
+              <Link
+                to={"/notifications"}
+                className="font-semibold text-deepblue hover:underline"
+              >
+                View All
+              </Link>
+            </div>
+            <ul className="h-[250px] overflow-y-scroll">
+              {notificaionsData.map((notification) => {
+                return (
+                  <Link
+                    to={notification.link}
+                    className="flex py-2 my-3 border-b-1 border-coolgray duration-300 hover:bg-coolgray cursor-pointer rounded"
+                  >
+                    <div className="left w-[50px] mx-4">
+                      <img src={notification.person.img} alt="" />
+                    </div>
+                    <div className="right flex-1">
+                      <p className="leading-5">
+                        <span className="font-bold">
+                          {notification.person.name}
+                        </span>{" "}
+                        {notification.data}
+                      </p>
+                      <span className="block text-end text-xs">
+                        {timeago.format(notification.date)}
+                      </span>
+                    </div>
+                  </Link>
+                );
+              })}
+            </ul>
+          </div>
+          <div className="recent-activity flex-2 bg-white p-5 rounded-lg min-w-[250px]">
+            <div className="heading flex justify-between items-center pb-3">
+              <h2 className="font-semibold text-xl">Recent Activity</h2>
+              <Link
+                to={"/recentactivity"}
+                className="font-semibold text-deepblue hover:underline"
+              >
+                View All
+              </Link>
+            </div>
+            <ul className="h-[250px] overflow-y-scroll">
+              {recentActivityData.map((item, index) => {
+                return (
+                  <li
+                    key={index}
+                    className="mx-3 px-3 pb-5 relative border-l-2 border-coolgray"
+                  >
+                    <div
+                      className={`w-[20px] h-[20px] rounded-full border-3 absolute top-0 left-0 translate-x-[-50%] bg-white ${
+                        item.color == "red"
+                          ? "border-orange-500"
+                          : "border-green-500"
+                      }`}
+                    ></div>
+                    <div className="ps-2">
+                      <h4 className="font-semibold">{item.title}</h4>
+                      <p className="text-sm">{item.desc}</p>
+                      <span className="block text-xs text-end">
+                        {timeago.format(item.date)}
+                      </span>
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
         </div>
       </div>
     </div>
