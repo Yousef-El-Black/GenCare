@@ -22,7 +22,7 @@
     "react": "^19.0.0",
     "react-chartjs-2": "^5.3.0",
     "react-dom": "^19.0.0",
-    "react-lite-month-picker": "^1.2.19",
+    
     "react-router": "^7.4.1",
     "react-router-dom": "^7.4.1",
     "timeago.js": "^4.0.0-beta.3"
